@@ -13,13 +13,13 @@ workspace {
             businessLogic = container "Business Logic"{
                 app -> this "Exposes functionalities"
 
-                backend = component {
+                backend = component "Mobile Application Backend" {
                     app -> this "Expose funcionalities"
                 }
 
-                integration = component 
+                integration = component "Integration"
 
-                dataMapper = component 
+                dataMapper = component "Data Mapper"
             }
            
             database = container "Database"{
@@ -33,13 +33,15 @@ workspace {
         crmSytem = softwareSystem "CRM" {
             mobileApp -> this "Retrieve user profile"
             businessLogic -> this "Retrive user profile"
-            integration - > this "Retrive user profile"
+            integration -> this "Retrive user profile"
 
         }
 
         bankingSytem = softwareSystem "Core Banking"{
             mobileApp -> this "Store and retrieve payments"
             businessLogic -> this "Store and retrieve payments"
+            integration -> this "Store and retrieve payments"
+
 
         }
 
